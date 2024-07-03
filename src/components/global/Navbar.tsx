@@ -41,9 +41,10 @@ const MobileNavbar = () => {
         <div className='w-full h-12 flex justify-center md:hidden'>
             <div className="w-[90%] h-full px-1.5 mt-4 flex justify-between items-center backdrop-blur-[16px] bg-[rgba(255,255,255,0.08)] border-[rgba(255,255,255,0.08)] border rounded-[34px] md:hidden">
 
-                <div className="px-1 flex justify-center items-center" >
-                    <Link href="#hero">
-                        <Image src={figmaIcon} width={120} height={120} alt='logo' />
+                <div className="px-1 flex justify-center items-center " >
+                    <Link href="#hero" className='flex justify-center items-center gap-2'>
+                    <Image src={figmaSvg} width={15} height={15} alt='logo' />
+                    <p className=' font-satoshi-medium text-xl'>Figma</p>
                     </Link>
                 </div>
 
