@@ -1,10 +1,6 @@
 'use client'
-import { useGSAP } from '@gsap/react';
 import React, { useState } from 'react'
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gsap, { Power1 } from 'gsap';
 
-gsap.registerPlugin(ScrollTrigger);
 
 
 const Slider = () => {

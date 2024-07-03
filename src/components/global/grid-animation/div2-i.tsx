@@ -8,6 +8,8 @@ import React, { useEffect, useState } from 'react'
 
 const EmojiComponents = () => {
 
+
+
     const [index, setIndex] = useState(4);
     const [scope, animate ] = useAnimate();
     const hoverClass =  [
