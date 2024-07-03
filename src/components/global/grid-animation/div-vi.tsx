@@ -2,6 +2,8 @@
 import { animate, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
+import Image from "next/image";
+import { FigmaLogo, figmaIcon } from "@/lib/constants";
 
 export function CardDemo() {
   return (
@@ -77,7 +79,7 @@ const Skeleton = () => {
           <OpenAILogo className="h-8 w-8 dark:text-white" />
         </Container>
         <Container className="circle-3">
-          <OpenAILogo className="h-8 w-8 dark:text-white" />
+          <Image src={figmaIcon} width={20} height={20} alt="logo" className=" opacity-80" />
         </Container>
         <Container className="h-12 w-12 circle-4">
           <MetaIconOutline className="h-6 w-6 " />

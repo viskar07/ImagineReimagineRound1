@@ -1,12 +1,11 @@
 'use client';
 
-import { getWandStyles, updateMouse } from "@/lib/utils";
+import { getWandStyles, updateMouse, updateMouse2 } from "@/lib/utils";
 import { useAnimate } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const Wand = ({ state }: { state: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [scope, animate] = useAnimate();
 
 
 

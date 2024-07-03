@@ -1,8 +1,15 @@
 'use client'
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { TextGenerateEffect } from '../ui/text-generate-effect';
+
 
 const HighlightedCSSCode = () => {
+
+  const ref = useRef(null)
+
+  const isInView = useInView(ref, { once: true })
+
   const codeString = `
 .container {
   width: 100%;
@@ -46,28 +53,8 @@ const HighlightedCSSCode = () => {
     <div className="w-full h-full flex justify-start gap-20 items-center relative overflow-y-scroll ">
       <div className="w-full h-full bg-transparent  rounded-lg overflow-y-scroll no-scrollbar relative ">
         <pre className="typewriter font-satoshi-regular bg-transparent w-full h-full opacity-55">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-            {displayedText.split('').map((char, index) => {
-              const isSelector = char === '.' && codeString[index - 1] === '\n';
-              const isBracket = char === '{' || char === '}';
-              return (
-                <motion.span
-                  key={index}
-                  className={
-                    isSelector ? 'selector-highlight' :
-                      isBracket ? 'bracket-highlight' :
-                        char === '#' ? 'hex-highlight' :
-                          ''
-                  }
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.1, delay: index * 0.01 }} // Staggered animation
-                >
-                  {char}
-                </motion.span>
-              );
-            })}
-          </motion.div>
+         
+          <TextGenerateEffect words={codeString} />
         </pre>
       </div>
     </div>

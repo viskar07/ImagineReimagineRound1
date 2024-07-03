@@ -2,6 +2,7 @@
 import { astronoteIcon, image } from '@/lib/constants'
 import Image from 'next/image'
 import React, { useState } from 'react'
+import Heading from './grid-info'
 
 const FlipCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -15,10 +16,14 @@ const FlipCard = () => {
   };
   return (
 
-    <div className="box-outlate w-[300px] relative  perspective-1000"
+    <div className="box-outlate w-[300px] row-start-2 md:row-auto  perspective-1000"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      <Heading 
+        heading='Conjure up creativity'
+        description='Magician demystifies the creative process by magically turning your ideas into assets.'  
+      />
       <div className={`z-[100] w-[200px] h-[200px] left-4 flex justify-between items-center relative border-none rounded-[36px] shadow-flipCard rotate-2 mt-28  transition-transform duration-700 transform-style-preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
         <div className="w-full h-full gap-2 bg-box-bg bg-transparent  border-none rounded-[32px] flex flex-col justify-center items-center .card-front  ">
           <Image src={image} width={50} height={50} alt='image' className='' />

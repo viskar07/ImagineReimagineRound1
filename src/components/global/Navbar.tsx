@@ -1,10 +1,12 @@
 'use client'
-import { navItems } from '@/lib/constants'
+import { figmaSvg, navItems } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import {motion} from 'framer-motion'
+import {motion, useAnimate} from 'framer-motion'
 const Navbar = () => {
+
+
     const [isMobile, setIsMobile] = useState(false);
 
     const handleResize = () => {
@@ -56,12 +58,23 @@ const MobileNavbar = () => {
 
 
 const DesktopNavbar = () => {
+    
+    const [scope,animate]=useAnimate();
+  useEffect(()=>{
+    const animationSeq = async () =>{
+
+       animate(scope.current, {opacity:1} ,{duration:1,type:'spring' ,ease:'easeInOut'})
+    }
+    animationSeq()
+  },[animate])
+  
     return (
-        <div className="w-full h-[56px] hidden md:flex justify-between items-center px-10 py-2  ">
+        <div className="  opacity-0 w-full h-[56px] hidden md:flex justify-between items-center px-10 py-2  " ref={scope}>
             {/* Logo  */}
             <div className="flex justify-center items-center" >
-                <Link href="#hero">
-                    <Image src='/icons/logo.svg' width={120} height={120} alt='logo' />
+                <Link href="#hero" className='flex justify-center items-center gap-2'>
+                    <Image src={figmaSvg} width={15} height={15} alt='logo' />
+                    <p className=' font-satoshi-medium text-xl'>Figma</p>
                 </Link>
             </div>
 

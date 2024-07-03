@@ -1,18 +1,9 @@
 'use client'
 import { image, imageRevile1, imageRevile2, imageRevile3 } from '@/lib/constants';
-import { revealImages } from '@/lib/utils';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 
-
-
-
-
-
-
-const Tile: React.FC = ({ }) => {
-
-
+const Tile = ({ state }: { state: boolean }) => {
   const tileRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
 
   useEffect(() => {
@@ -36,12 +27,14 @@ const Tile: React.FC = ({ }) => {
       revealImages(e.clientX);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    if (state) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
-
+  }, [state]);
 
   const commonClasses = `w-[200px] h-[200px] bg-box-bg rounded-[32px] flex justify-center items-center overflow-hidden shadow-flipCard relative`;
 
@@ -53,17 +46,13 @@ const Tile: React.FC = ({ }) => {
       </div>
       <div ref={tileRefs[1]} className={`${commonClasses} z-[6] -bottom-[39px] left-[10px] transform -rotate-2`}>
         <Image src={image} height={50} width={50} alt='imageIcon' />
-
         <Image src={imageRevile2} width={200} height={200} alt='image' className='bg-cover absolute top-0 bottom-0 left-0 right-0 rounded-[32px]' style={{ opacity: 'var(--opacity)', filter: 'blur(calc(var(--blur) * 10px))' }} />
       </div>
       <div ref={tileRefs[2]} className={`${commonClasses} z-[5] -bottom-10 -left-10 transform rotate-[5deg]`}>
         <Image src={image} height={50} width={50} alt='imageIcon' />
-
         <Image src={imageRevile3} width={200} height={200} alt='image' className='bg-cover absolute top-0 bottom-0 left-0 right-0 rounded-[32px]' style={{ opacity: 'var(--opacity)', filter: 'blur(calc(var(--blur) * 10px))' }} />
       </div>
     </div>
-
-
   );
 };
 

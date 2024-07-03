@@ -3,12 +3,18 @@ import { magicRevile } from '@/lib/constants'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import Wand from '../magic-components/moving-wand'
-import { MotionConfig, color, motion } from 'framer-motion'
-import { getWandStyles, updateMouse } from '@/lib/utils'
+import {  motion, useAnimation } from 'framer-motion'
+import { getWandStyles, updateMouse, updateMouse2 } from '@/lib/utils'
+import Heading from './grid-info'
 
-const MagicRevile = () => {
+interface props {
+  className?:string
+}
+const MagicRevile = (Props:props) => {
   const [active, setActive] = useState(false)
+
   const blurRef =  useRef<HTMLDivElement>(null);
+
 
   useEffect(()=>{
     const handleMouseMove = (e: MouseEvent) => {
@@ -45,7 +51,11 @@ const MagicRevile = () => {
   },[active])
 
   return (
-    <motion.div className="box-outlate w-[300px]  sm:w-[612px] sm:col-span-2 relative "  onMouseEnter={()=>setActive(true)} onMouseLeave={()=>setActive(false)}>
+    <motion.div className={`box-outlate w-[300px] ${Props.className} row-start-3 md:row-auto  sm:w-[612px] sm:col-span-2 relative `}  onMouseEnter={()=>setActive(true)} onMouseLeave={()=>setActive(false)}>
+      <Heading 
+        heading='Generate SVG icons for anything'
+        description='Magic Icon generates infinitely scalable SVG icons to use anywhere in your design.'  
+      />
       <div className={`w-full h-full  `} >
         <div className=" relative " >
           <Wand state={active}/>

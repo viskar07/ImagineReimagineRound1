@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 const NavigatioScreen = () => {
     const [index, setIndex] = useState(0);
     return (
-        <div className='w-[230px] h-[500px] bg-transparent  rounded-[18px] border-[#2d2d2d] border-[1px] box-shadow flex flex-col items-center '>
+        <div className='w-[230px] h-[430px] bg-transparent overflow-hidden rounded-[18px] border-[#2d2d2d] border-[1px] box-shadow flex flex-col items-center '>
             <div className="w-full flex justify-center items-center">
                 <Image src={topNavigation} width={228} height={34} alt='navigation-bar' />
             </div>
