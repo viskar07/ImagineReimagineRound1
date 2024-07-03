@@ -1,5 +1,5 @@
 'use client'
-import { figmaSvg, navItems } from '@/lib/constants'
+import { figmaIcon, figmaSvg, navItems } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -43,7 +43,7 @@ const MobileNavbar = () => {
 
                 <div className="px-1 flex justify-center items-center" >
                     <Link href="#hero">
-                        <Image src='/icons/logo.svg' width={120} height={120} alt='logo' />
+                        <Image src={figmaIcon} width={120} height={120} alt='logo' />
                     </Link>
                 </div>
 
@@ -67,7 +67,7 @@ const DesktopNavbar = () => {
     }
     animationSeq()
   },[animate])
-  
+
     return (
         <div className="  opacity-0 w-full h-[56px] hidden md:flex justify-between items-center px-10 py-2  " ref={scope}>
             {/* Logo  */}
