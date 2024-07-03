@@ -2,12 +2,9 @@
 import React from 'react'
 import { CardBody, CardContainer, CardItem } from '../global/ui/3d-card';
 import { CheckIcon } from 'lucide-react'
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
 import { SparklesPreview } from '../global/ui/PriceHeading';
 
 
-gsap.registerPlugin(ScrollTrigger);
 
 const Pricing = () => {
 
