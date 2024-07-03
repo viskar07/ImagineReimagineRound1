@@ -11,10 +11,11 @@ const MobileNavigation = () => {
 
     const [scope, animate] = useAnimate();
     const [hover, setHover] = useState(false)
+    
     useEffect(() => {
         if (hover) {
             animate('#img1', { rotate: 360, x: 200 }, { duration: 1, ease: 'easeInOut', type:'spring' }),
-                animate('#img2', { rotate: 360, x: 250, y: 50, }, { duration: 1, ease: 'easeInOut', type: 'spring' })
+            animate('#img2', { rotate: 360, x: 250, y: 50, }, { duration: 1, ease: 'easeInOut', type: 'spring' })
             animate('#img3', { rotate: 360, x: 200 }, { duration: 1, ease: 'easeInOut', type: 'spring' })
             animate('#wand', { x: 400, rotate: 10 }, { duration: 1.2, delay: 0.1, ease: 'easeInOut', type: 'spring' })
             animate('#beam', { x: 100, rotate: 90 }, { duration: 1, delay: 0.1, ease: 'easeInOut', type: 'spring' })

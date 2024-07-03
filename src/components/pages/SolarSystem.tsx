@@ -1,24 +1,10 @@
-'use client'
 import { Dcutout, FigmaLogo, automator, cursor, loaderLogo, orbit1, orbit2, orbit3, orbit4, orbit5, orbit6, orbit7, orbit8, planet1, planet2, planet3, planet4, planet5, planet6, planet7, planet8, ring, ui } from '@/lib/constants'
-import { useAnimate, useInView } from 'framer-motion'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const SolarSystem = () => {
-  
-  const [scope,animate]=useAnimate();
-  const inView = useInView(scope, { once: true });
-  useEffect(()=>{
-    const animationSeq = async () =>{
-      await animate(scope.current ,{opacity:1} ,{duration:2,type:'spring' ,ease:'easeInOut'})
-    }
-    if(inView){
-
-      animationSeq()
-    }
-  },[animate,inView])
   return (
-    <div className='w-full h-full mt-10 z-10' ref={scope}>
+    <div className='w-full h-full mt-10 z-10'>
       <div className="w-full h-screen flex flex-col justify-center items-center overflow-visible relative">
 
         <div className="w-[152px] h-[152px] rounded-full bg-[#656566] relative">

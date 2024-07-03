@@ -1,8 +1,23 @@
 import { black, emoji, emojis } from '@/lib/constants'
 import Image from 'next/image'
 import React from 'react'
+import{motion} from 'framer-motion'
 
 const GerateComponents = () => {
+
+  const  fadeinAnimationVarients = {
+    initial :{
+      opacity:0,
+      y:100
+    },
+    animate:((index:number)=>({
+      opacity:1,
+      y:0,
+      transition:{
+        dealy:0.05*index,
+      }
+    }))
+  }
   return (
     <div className='w-full h-72  mt-16 relative '>
       <div className="w-72 h-[200px] bg-[#1b1b1e] shadow-screen-shadow  border-screen-border border rounded-[16px] overflow-hidden absolute top-6 -left-16 p-2 flex gap-3 flex-col items-center">
@@ -25,7 +40,10 @@ const GerateComponents = () => {
 
         <div className="w-full h-[180px] mt-3 border  bg-screen-item  border-screen-border rounded-md z-0  dark:bg-dot-white/[0.2] bg-dot-black/[0.2]  flex items-center justify-center gap-6 flex-wrap">
          {emojis.map((item,idx)=>(
-          <Image src={item} width={30} height={30} alt='emoji' key={idx}/>
+          <motion.div className='w-[30px] h-[30px]' key={idx} variants={fadeinAnimationVarients} initial='initial' whileInView={"animate"} viewport={{once:true}} custom={idx}>
+          <Image src={item} width={30} height={30} alt='emoji' key={idx} />
+
+          </motion.div>
          ))}
         </div>
 
